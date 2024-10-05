@@ -1,13 +1,6 @@
 import numpy as np  #for numerical operations, particularly calculating Euclidean distances.
 import heapq    #Implements a priority queue for efficiently selecting the next node to explore in the A* algorithm.
 
-class Node:
-    def __init__(self, location, g, h):
-        self.location = location  # Delivery location
-        self.g = g                # Cost from start to current node
-        self.h = h                # Estimated cost from current node to goal
-        self.f = g + h            # Total cost
-
 # Use Euclidean distance as heuristic (a measure of the straight-line distance between two points)
 def heuristic(location, deliveries):
     distances = []
