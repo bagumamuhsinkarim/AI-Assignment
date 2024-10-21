@@ -74,7 +74,7 @@ def A_algorithm(start, deliveries, traffic_info):
 
 start = (0, 0)  # Example starting point
 
-deliveries = [(1, 2), (2, 3),(3, 1), (4, 0)]  # Example delivery points [(x1, y1), (x2, y2), ...
+deliveries = [(1, 2), (2, 3),(3, 1)]  # Example delivery points [(x1, y1), (x2, y2), ...
 
 # Traffic information between delivery points
 traffic_info = {
