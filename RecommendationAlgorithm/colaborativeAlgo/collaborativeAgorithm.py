@@ -15,8 +15,8 @@ class CollaborativeRecommender:
         self.ratings = pandas.DataFrame(ratings_data).T
         self.similarity_matrix = None       #will be computed later based on ratings.
     
-    def calculate_similarity(self):     #likely between users or items in the dataset based on their ratings.
-        self.similarity_matrix = cosine_similarity(self.ratings.fillna(0))      #reeplace any missing values with 0 or null values.
+    def person_Correlation(self):     #likely between users or items in the dataset based on their ratings.
+        self.similarity_matrix = cosine_similarity(self.ratings.fillna(0))      #replace any missing values with 0 or null values.
         self.similarity_matrix = pandas.DataFrame(self.similarity_matrix,index=self.ratings.index,columns=self.ratings.index)
         
         """
@@ -26,15 +26,16 @@ class CollaborativeRecommender:
             self.similarity_matrix = similarity_df
         """
 
-    def Collaborative(self, user, n_recommendations=3):        
+    def CollaborativeUser(self, user, Required_Recommendations=3):        
         if self.similarity_matrix is None:
-            self.calculate_similarity()
+            self.PersonCorrelation()
 
         # Get and sort similar users
         similar_users = self.similarity_matrix[user].sort_values(ascending=False)
 
         # Gather items from similar users
         recommendations = pandas.Series(dtype=float)
+
         for similar_user in similar_users.index[1:]:  # Skip the user themselves
             user_ratings = self.ratings.loc[similar_user]
             recommendations = pandas.concat([recommendations, user_ratings[user_ratings > 0]])
@@ -43,4 +44,58 @@ class CollaborativeRecommender:
         recommendations = recommendations[~recommendations.index.isin(
             self.ratings.loc[user][self.ratings.loc[user] > 0].index)]
 
-        return recommendations.sort_values(ascending=False).head(n_recommendations)
+        return recommendations.sort_values(ascending=False).head(Required_Recommendations)
+    
+    def CollaborativeItem(self, item, Required_Recommendations=3):
+        if self.similarity_matrix is None:
+            self.PersonCorrelation()
+
+        # Get and sort similar items
+        similar_items = self.similarity_matrix[item].sort_values(ascending=False)
+
+        # Gather items from similar items
+        recommendations = pandas.Series(dtype=float)
+        for similar_item in similar_items.index[1:]:
+            item_ratings = self.ratings[similar_item]
+            recommendations = pandas.concat([recommendations, item_ratings[item_ratings > 0]])
+
+        # Remove items already rated by the same user
+        recommendations = recommendations[~recommendations.index.isin(
+            self.ratings[item][self.ratings[item] > 0].index)]
+        
+        return recommendations.sort_values(ascending=False).head(Required_Recommendations)
+    
+    def CollaborativeHybrid(self, user, item, Required_Recommendations=3):
+        if self.similarity_matrix is None:
+            self.PersonCorrelation()
+
+        # Get and sort similar users
+        similar_users = self.similarity_matrix[user].sort_values(ascending=False)
+
+        # Gather items from similar users
+        recommendations = pandas.Series(dtype=float)
+        for similar_user in similar_users.index[1:]:
+            user_ratings = self.ratings.loc[similar_user]
+            recommendations = pandas.concat([recommendations, user_ratings[user_ratings > 0]])
+
+        # Remove items already rated by the same user
+        recommendations = recommendations[~recommendations.index.isin(
+            self.ratings.loc[user][self.ratings.loc[user] > 0].index)]
+        
+        # Get and sort similar items
+        similar_items = self.similarity_matrix[item].sort_values(ascending=False)
+
+        # Gather items from similar items
+        recommendations2 = pandas.Series(dtype=float)
+        for similar_item in similar_items.index[1:]:
+            item_ratings = self.ratings[similar_item]
+            recommendations2 = pandas.concat([recommendations2, item_ratings[item_ratings > 0]])
+
+        # Remove items already rated by the same user
+        recommendations2 = recommendations2[~recommendations2.index.isin(
+            self.ratings[item][self.ratings[item] > 0].index)]
+        
+        recommendations = recommendations.append(recommendations2)
+
+        return recommendations.sort_values(ascending=False).head(Required_Recommendations)
+    
