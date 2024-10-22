@@ -14,11 +14,11 @@ class CollaborativeRecommender:
             self.similarity_matrix = similarity_df
         """
 
-    def Collaborative(self, user, n_recommendations=2):        
+    def Collaborative(self, user, n_recommendations=3):        
         if self.similarity_matrix is None:
             self.calculate_similarity()
 
-        # Get similar users
+        # Get and sort similar users
         similar_users = self.similarity_matrix[user].sort_values(ascending=False)
 
         # Gather items from similar users
@@ -27,7 +27,7 @@ class CollaborativeRecommender:
             user_ratings = self.ratings.loc[similar_user]
             recommendations = pandas.concat([recommendations, user_ratings[user_ratings > 0]])
 
-        # Remove items already rated by the user
+        # Remove items already rated by the same user
         recommendations = recommendations[~recommendations.index.isin(
             self.ratings.loc[user][self.ratings.loc[user] > 0].index)]
 
