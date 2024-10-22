@@ -28,7 +28,7 @@ class CollaborativeRecommender:
 
     def CollaborativeUser(self, user, Required_Recommendations=3):        
         if self.similarity_matrix is None:
-            self.PersonCorrelation()
+            self.person_Correlation()
 
         # Get and sort similar users
         similar_users = self.similarity_matrix[user].sort_values(ascending=False)
@@ -48,7 +48,7 @@ class CollaborativeRecommender:
     
     def CollaborativeItem(self, item, Required_Recommendations=3):
         if self.similarity_matrix is None:
-            self.PersonCorrelation()
+            self.person_Correlation()
 
         # Get and sort similar items
         similar_items = self.similarity_matrix[item].sort_values(ascending=False)
@@ -56,18 +56,21 @@ class CollaborativeRecommender:
         # Gather items from similar items
         recommendations = pandas.Series(dtype=float)
         for similar_item in similar_items.index[1:]:
-            item_ratings = self.ratings[similar_item]
-            recommendations = pandas.concat([recommendations, item_ratings[item_ratings > 0]])
+            if similar_item in self.ratings:
+                item_ratings = self.ratings[similar_item]
+                recommendations = pandas.concat([recommendations, item_ratings[item_ratings > 0]])
+            else:
+                print(f"Warning: {similar_item} not found in ratings")
 
         # Remove items already rated by the same user
         recommendations = recommendations[~recommendations.index.isin(
             self.ratings[item][self.ratings[item] > 0].index)]
         
         return recommendations.sort_values(ascending=False).head(Required_Recommendations)
-    
+       
     def CollaborativeHybrid(self, user, item, Required_Recommendations=3):
         if self.similarity_matrix is None:
-            self.PersonCorrelation()
+            self.person_Correlation()
 
         # Get and sort similar users
         similar_users = self.similarity_matrix[user].sort_values(ascending=False)
