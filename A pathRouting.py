@@ -27,7 +27,9 @@ def get_cost(start, destination, traffic_info):
 # determining the actual route taken once the algorithm has finished processing
 def reconstruct_path(came_from, current):
     total_path_covered = [current]
-    while current in came_from:
+    while True:
+        if current not in came_from:
+            break
         current = came_from[current]
         total_path_covered.append(current)
     return total_path_covered[::-1]  # Return reversed path
@@ -64,34 +66,45 @@ def A_algorithm(start, deliveries, traffic_info):
                 if neighbor not in [i[1] for i in open_set]:
                     heapq.heappush(open_set, (f_score[neighbor], neighbor))
     
-    return None  # No path found
-
-
-
+    path = [start]      # Initialize the path with the starting point 
+    remaining_deliveries = deliveries[:]        # Create a copy of the deliveries list to keep track of remaining deliveries
+    current = start     # Set the current location to the starting point
+    
+    while remaining_deliveries:     # Loop until all deliveries are made
+        nearest_delivery = min(remaining_deliveries, key=lambda x: get_cost(current, x, traffic_info))
+        path.append(nearest_delivery)
+        current = nearest_delivery       # Update the current location to the nearest delivery point
+        remaining_deliveries.remove(nearest_delivery)       # Remove the nearest delivery point from the list of remaining deliveries
+    
+    return path     # Path found
 
 
 # Example of the delivery route
 
-start = (0, 0)  # Example starting point
+start = (7, 7)
+deliveries = [(1, 2), (2, 3), (3, 1), (8, 8), (4, 4), (6, 6), (7, 7), (9, 9), (0, 0), (9, 10)]
+all_locations = [(0, 0), (1, 2), (2, 3), (3, 1), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (11, 11), (12, 12), (13, 13), (14, 14)]
 
-deliveries = [(1, 2), (2, 3),(3, 1)]  # Example delivery points [(x1, y1), (x2, y2), ...
-
-# Traffic information between delivery points
 traffic_info = {
-    ((0, 0), (1, 2)): 2,   # Start to (1, 2)
-    ((0, 0), (2, 3)): 4,   # Start to (2, 3)
-    ((1, 2), (2, 3)): 1,   # (1, 2) to (2, 3)
-    ((1, 2), (3, 1)): 3,   # (1, 2) to (3, 1)
-    ((2, 3), (3, 1)): 2,   # (2, 3) to (3, 1)
-    ((0, 0), (3, 4)): 5,   # Start to (3, 4)
-    ((1, 2), (3, 4)): 4,   # (1, 2) to (3, 4)
-    ((2, 3), (1, 1)): 3,   # (2, 3) to (1, 1)
-    ((3, 1), (1, 1)): 2,   # (3, 1) to (1, 1)
-    ((0, 0), (4, 0)): 3,   # Start to (4, 0)
-    ((4, 0), (3, 1)): 2,   # (4, 0) to (3, 1)
-    ((2, 3), (0, 0)): 6,   # (2, 3) to Start
-    ((3, 4), (4, 0)): 5,   # (3, 4) to (4, 0)
-    ((4, 0), (3, 4)): 6,   # (4, 0) to (3, 4)
+    ((0, 0), (1, 1)): 1,
+    ((1, 1), (2, 2)): 1,
+    ((2, 2), (3, 3)): 1,
+    ((3, 3), (4, 4)): 1,
+    ((4, 4), (5, 5)): 1,
+    ((5, 5), (6, 6)): 1,
+    ((6, 6), (7, 7)): 1,
+    ((7, 7), (8, 8)): 1,
+    ((8, 8), (9, 9)): 1,
+    ((0, 0), (2, 2)): 2,
+    ((0, 0), (3, 3)): 3,
+    ((0, 0), (4, 4)): 4,
+    ((0, 0), (5, 5)): 5,
+    ((1, 1), (3, 3)): 2,
+    ((1, 1), (4, 4)): 3,
+    ((1, 1), (5, 5)): 4,
+    ((2, 2), (4, 4)): 2,
+    ((2, 2), (5, 5)): 3,
+    ((3, 3), (5, 5)): 2,
 }
 
 # Call the A* algorithm to find the optimal delivery route
