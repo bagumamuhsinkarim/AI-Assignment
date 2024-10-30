@@ -45,7 +45,7 @@ def A_algorithm(start, deliveries, traffic_info):
         current = heapq.heappop(open_set)[1]    # The one node with the lowest priority/cost is popped from the heap first.
         
         all_deliveries_reached = True  # Assume all deliveries are reached        
-        for delivery in deliveries:
+        for delivery in deliveries:     #varify it
             if delivery not in came_from:
                 all_deliveries_reached = False  # Found a delivery not reached
                 break  # Exit the loop early        
@@ -81,30 +81,18 @@ def A_algorithm(start, deliveries, traffic_info):
 
 # Example of the delivery route
 
-start = (7, 7)
-deliveries = [(1, 2), (2, 3), (3, 1), (8, 8), (4, 4), (6, 6), (7, 7), (9, 9), (0, 0), (9, 10)]
-all_locations = [(0, 0), (1, 2), (2, 3), (3, 1), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (11, 11), (12, 12), (13, 13), (14, 14)]
+start = (8, 8)
+deliveries = [(1, 2), (2, 3), (3, 1), (8, 8), (4, 4), (6, 6), (7, 7), (9, 3)]
+all_locations = [(1, 2), (2, 3), (3, 1), (4, 4), (6, 6), (7, 7),(8, 8), (9, 3)]
 
 traffic_info = {
-    ((0, 0), (1, 1)): 1,
-    ((1, 1), (2, 2)): 1,
-    ((2, 2), (3, 3)): 1,
-    ((3, 3), (4, 4)): 1,
-    ((4, 4), (5, 5)): 1,
-    ((5, 5), (6, 6)): 1,
-    ((6, 6), (7, 7)): 1,
-    ((7, 7), (8, 8)): 1,
-    ((8, 8), (9, 9)): 1,
-    ((0, 0), (2, 2)): 2,
-    ((0, 0), (3, 3)): 3,
-    ((0, 0), (4, 4)): 4,
-    ((0, 0), (5, 5)): 5,
-    ((1, 1), (3, 3)): 2,
-    ((1, 1), (4, 4)): 3,
-    ((1, 1), (5, 5)): 4,
-    ((2, 2), (4, 4)): 2,
-    ((2, 2), (5, 5)): 3,
-    ((3, 3), (5, 5)): 2,
+    ((1, 2), (2, 3)): 3,
+    ((2, 3), (3, 1)): 1,
+    ((3, 1), (8, 8)): 4,
+    ((6, 6), (4, 4)): 7,
+    ((4, 4), (7, 7)): 3,
+    ((8, 8), (9, 3)): 5,
+    ((9, 3), (4, 4)): 3,
 }
 
 # Call the A* algorithm to find the optimal delivery route
