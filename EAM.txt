@@ -1,0 +1,27 @@
+gpt in full and what it means?
+	what it means to transform 
+	
+Retrieval augmented generation
+	adding dat to gemini or chart gpt?
+
+classic natural languages problems
+
+multimodality in AI
+
+vertex AI
+
+google cloud
+
+
+Uninformed Search Strategies
+	An uninformed search algorithm is given no clue about how close a state is to the goal(s).
+these include:
+	Breadth-first search
+	Dijkstra’s algorithm or uniform-cost search
+	Depth-limited search
+	Bidirectional search
+	Depth-first search
+	Heuristic Functions
+
+
+https://github.com/bagumamuhsinkarim/AI-Assignment
