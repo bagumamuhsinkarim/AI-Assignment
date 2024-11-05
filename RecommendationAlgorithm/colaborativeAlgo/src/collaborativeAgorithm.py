@@ -1,3 +1,6 @@
+import pandas
+from sklearn.metrics.pairwise import cosine_similarity
+
 class CollaborativeRecommender:
     def __init__(self, ratings_data):       #initializes an instance of the class with ratings_data
         #error handling to ensure the input data is valid.
