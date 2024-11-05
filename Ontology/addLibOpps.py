@@ -70,14 +70,15 @@ def list_loan_options(graph, material_type):
 if __name__ == "__main__":
     # Define properties for a new book entity
     book_properties = {
-        "ISBM": "978-3-16-276345-0",
-        "Author": "Baguma Muhsin",
-        "Title": "Introduction to Computer Science",
-        "loanTime": "7 days"
+        "ISBM": "099-3-16-276345-0",
+        "Author": "Sharifah ",
+        "Title": "Introduction to Python",
+        "loanTime": "30 days"
+                
     }
     
     # Add a new book entity to the RDF graph
-    new_book_uri = add_entity(g, "Books", "Introduction to Computer science", book_properties)
+    new_book_uri = add_entity(g, "Books", "Conflict Harbits", book_properties)
     print(f"Added new book: {new_book_uri}")
     
     # Retrieve and print loan options for "Books"
