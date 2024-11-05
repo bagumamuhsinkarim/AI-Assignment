@@ -1,729 +1,426 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/muhsin/ontologies/2024/9/library/"
-     xml:base="http://www.semanticweb.org/muhsin/ontologies/2024/9/library/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EditionNmbr -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EditionNmbr">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeedIn -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeedIn">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#FacultySpace -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#FacultySpace">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#IsUsing -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#IsUsing">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#MadeOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#MadeOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ReturnDay -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ReturnDay">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#checkoutDay"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beenReturned -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beenReturned">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beencheckedOut"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beencheckedOut -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beencheckedOut">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#checkoutDay -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#checkoutDay">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasCheckOut"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasAuthor -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasAuthor">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasCheckOut -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasCheckOut">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
-        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasPublisher -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasPublisher">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hostsEvent -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hostsEvent">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryStudies"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#offersWorkShop -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#offersWorkShop">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#provideAssistance -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#provideAssistance">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#servicesTo -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#servicesTo">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeeName -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeeName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ISBM -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ISBM">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCard -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCard">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#SpaceAvailability -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#SpaceAvailability">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#WorkHours -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#WorkHours">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#assistanceType -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#assistanceType">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#capacity -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#capacity">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#spaceName"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#duration -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#duration">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#edition -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#edition">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanDate -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanDate">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanTime -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanTime">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#publicationDate -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#publicationDate">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#returnDay -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#returnDay">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#serviceAvailabilty -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#serviceAvailabilty">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#spaceName -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#spaceName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Alumni -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Alumni">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#AppliedSciences -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#AppliedSciences">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Bussiness -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Bussiness">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#CD -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#CD">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Classroom -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Classroom">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#DVD -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#DVD">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Editions -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Editions">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EditionNmbr"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#MadeOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Fiction -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Fiction">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ICT -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ICT">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ItResearch -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ItResearch">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#JournalAuthor -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#JournalAuthor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibSecretaries -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibSecretaries">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Librarian -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Librarian">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Security"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#servicesTo"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryStudies -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryStudies">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Medicine -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Medicine">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NewsPapperAuthor -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NewsPapperAuthor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Newspaper -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Newspaper">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NonFiction -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NonFiction">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Office -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Office">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Postgrad -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Postgrad">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Security -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Security">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Staff -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Staff">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudyArea -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudyArea">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Undergrad -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Undergrad">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#bookAuthor -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#bookAuthor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Alumni"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Staff"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Classroom"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ItResearch"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Office"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudyArea"/>
-        </owl:members>
-    </rdf:Description>
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#MadeOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#edition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf1fa42dac89c450f925da64b7ed9daf1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EditionNmbr"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ISBM">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#provideAssistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Fiction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#assistanceType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#IsUsing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EditionNmbr">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#FacultySpace">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#SpaceAvailability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#serviceAvailabilty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Undergrad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f1fd2564d904addada89cc3b68171a0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#servicesTo"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#JournalAuthor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ReturnDay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#checkoutDay"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Bussiness">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#publicationDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Postgrad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#spaceName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Introduction_to_Computer_science">
+    <rdf:type rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <ns1:ISBM>978-3-16-276345-0</ns1:ISBM>
+    <ns1:Author>Baguma Muhsin</ns1:Author>
+    <ns1:Title>Introduction to Computer Science</ns1:Title>
+    <ns1:loanTime>7 days</ns1:loanTime>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#loanTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beencheckedOut">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#offersWorkShop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Staff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#bookAuthor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasCheckOut">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
+    <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasRetuned"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#WorkHours">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Introduction_to_RDF_and_OWL">
+    <rdf:type rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <ns1:ISBM>978-3-16-148410-0</ns1:ISBM>
+    <ns1:Author>John Doe</ns1:Author>
+    <ns1:Title>Introduction to RDF and OWL</ns1:Title>
+    <ns1:loanTime>14 days</ns1:loanTime>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3299d9ac83034069985dbfca91162329">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Staff"/>
+    <rdf:rest rdf:nodeID="Nab162b549069434195479bfa9eda0f26"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+    <rdfs:subClassOf rdf:nodeID="N3f6df29bcba5496b8d7e93e4679c0920"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeeName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#returnDay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasPublisher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#servicesTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nab162b549069434195479bfa9eda0f26">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ICT">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hostsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryStudies"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#checkoutDay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasCheckOut"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#BookLoan"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudentProjectReports"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N10000530b67a4dbb91f11224a5ac9fda">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+    <rdf:rest rdf:nodeID="N3299d9ac83034069985dbfca91162329"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#duration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ResearchAssistance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N857b8bb8e63a4b3781234d6e0c83e9e6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nb63119f9fc964110b7ad1815f84715cf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7e3a314c572e4cfeb216d03ccf5d4df8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Classroom"/>
+    <rdf:rest rdf:nodeID="N1dc357534daf47fdb2fe1fb48928f263"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Journal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#hasAuthor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f6df29bcba5496b8d7e93e4679c0920">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#MadeOf"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#EmployeedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Editions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+    <rdfs:subClassOf rdf:nodeID="Nf1fa42dac89c450f925da64b7ed9daf1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ItResearch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beenReturned">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#beencheckedOut"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NewsPapperAuthor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Author/Publisher"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Classroom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1dc357534daf47fdb2fe1fb48928f263">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#ItResearch"/>
+    <rdf:rest rdf:nodeID="N13130402144a4bf0aefd4515a4567143"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Students">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryStudies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Librarian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Security"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#NonFiction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Books"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LecturerProjectReports">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Security">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibSecretaries">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#capacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#spaceName"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Alumni">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryUsers"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb63119f9fc964110b7ad1815f84715cf">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Alumni"/>
+    <rdf:rest rdf:nodeID="N10000530b67a4dbb91f11224a5ac9fda"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Office">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nea76992e13bf4843bf2b713433f9ede7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N7e3a314c572e4cfeb216d03ccf5d4df8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#DVD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Database">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryCollections"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#CD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryAdministration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibraryServices">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N3f1fd2564d904addada89cc3b68171a0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudyArea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#LibrarySpaces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#AppliedSciences">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee6efde14ab44e05af354eb67f3e383f">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#StudyArea"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N13130402144a4bf0aefd4515a4567143">
+    <rdf:first rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Office"/>
+    <rdf:rest rdf:nodeID="Nee6efde14ab44e05af354eb67f3e383f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Medicine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Faculty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#Newspaper">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/muhsin/ontologies/2024/9/library#OtherMaterials"/>
+  </rdf:Description>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
