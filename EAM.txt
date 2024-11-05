@@ -2,7 +2,7 @@ gpt in full and what it means?
 	what it means to transform 
 	
 Retrieval augmented generation
-	adding dat to gemini or chart gpt?
+	adding data to gemini or chart gpt?
 
 classic natural languages problems
 
@@ -25,3 +25,218 @@ these include:
 
 
 https://github.com/bagumamuhsinkarim/AI-Assignment
+
+
+
+
+Still building the workspace index, response may be less accurate.
+
+Certainly! Here's an overview of the folder structure and its contents:
+
+### Root Directory
+- **LICENSE**: This file typically contains the licensing information for the project.
+- **pom.xml**: This is the Maven Project Object Model file. It contains configuration details used by Maven to build the project, including dependencies, plugins, and build configurations.
+- **sports.owl**: This is likely an OWL (Web Ontology Language) file, which contains ontology data used by the application.
+
+### 
+
+ufsc
+
+ Directory
+This directory contains the Java source files for the project. The package structure follows the typical Java convention of organizing code by domain (edu.ufsc).
+
+- **Awnser.java**: This file likely defines the 
+
+Awnser
+
+ class, which is used in the 
+
+Main class.
+- **
+
+CommentaryExtractor.java
+
+**: This file likely defines the `CommentaryExtractor` class, which is used to extract commentary from the ontology.
+- **
+
+Main.java
+
+**: This is the main entry point of the application. It contains the 
+
+main
+
+ method and various helper methods to interact with the ontology and handle questions and answers.
+- **
+
+Question.java
+
+**: This file likely defines the `Question` class, which represents questions used in the application.
+
+### Key Points in 
+
+Main.java
+
+
+- **Imports**: The file imports various classes from the OWL API and other Java libraries.
+- **Class Variables**: 
+  - 
+
+scanner
+
+: A 
+
+Scanner
+
+ object for reading input.
+  - 
+Still building the workspace index, response may be less accurate.
+
+Certainly! Here's an overview of the folder structure and its contents:
+
+### Root Directory
+- **LICENSE**: This file typically contains the licensing information for the project.
+- **pom.xml**: This is the Maven Project Object Model file. It contains configuration details used by Maven to build the project, including dependencies, plugins, and build configurations.
+- **sports.owl**: This is likely an OWL (Web Ontology Language) file, which contains ontology data used by the application.
+
+### 
+
+ufsc
+
+ Directory
+This directory contains the Java source files for the project. The package structure follows the typical Java convention of organizing code by domain (
+
+edu.ufsc
+
+).
+
+- **
+
+Awnser.java
+
+**: This file likely defines the 
+
+Awnser
+
+ class, which is used in the 
+
+Main
+
+ class.
+- **
+
+CommentaryExtractor.java
+
+**: This file likely defines the `CommentaryExtractor` class, which is used to extract commentary from the ontology.
+- **
+
+Main.java
+
+**: This is the main entry point of the application. It contains the 
+
+main
+
+ method and various helper methods to interact with the ontology and handle questions and answers.
+- **
+
+Question.java
+
+**: This file likely defines the `Question` class, which represents questions used in the application.
+
+### Key Points in 
+
+Main.java
+
+
+- **Imports**: The file imports various classes from the OWL API and other Java libraries.
+- **Class Variables**: 
+  - 
+
+scanner
+
+: A 
+
+Scanner
+
+ object for reading input.
+  - 
+
+commentaryExtractor
+
+: An instance of `CommentaryExtractor`.
+  - 
+
+maybeAnwsers
+
+: A list of `Question` objects.
+- **Main Method**: 
+  - Initializes the 
+
+Scanner
+
+ and 
+
+OWLOntologyManager
+
+.
+  - Loads the ontology from the 
+
+sports.owl
+
+ file.
+  - Extracts individuals and builds questions from the ontology.
+  - Contains a loop to handle user interaction and process questions.
+
+### Maven Configuration (`pom.xml`)
+- **Project Information**: Defines the group ID, artifact ID, and version of the project.
+- **Build Configuration**: Specifies the source directory and the Maven Compiler Plugin configuration to use Java 1.8.
+- **Dependencies**: Includes dependencies like the OWL API.
+
+This structure indicates that the project is a Java application that uses the OWL API to interact with an ontology defined in 
+
+sports.owl
+
+. The 
+
+Main
+
+ class serves as the entry point, orchestrating the loading of the ontology, extracting information, and handling user interactions.
+commentaryExtractor
+
+: An instance of `CommentaryExtractor`.
+  - 
+
+maybeAnwsers
+
+: A list of `Question` objects.
+- **Main Method**: 
+  - Initializes the 
+
+Scanner
+
+ and 
+
+OWLOntologyManager
+
+.
+  - Loads the ontology from the 
+
+sports.owl
+
+ file.
+  - Extracts individuals and builds questions from the ontology.
+  - Contains a loop to handle user interaction and process questions.
+
+### Maven Configuration (`pom.xml`)
+- **Project Information**: Defines the group ID, artifact ID, and version of the project.
+- **Build Configuration**: Specifies the source directory and the Maven Compiler Plugin configuration to use Java 1.8.
+- **Dependencies**: Includes dependencies like the OWL API.
+
+This structure indicates that the project is a Java application that uses the OWL API to interact with an ontology defined in 
+
+sports.owl
+
+. The 
+
+Main
+
+ class serves as the entry point, orchestrating the loading of the ontology, extracting information, and handling user interactions.
