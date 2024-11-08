@@ -10,20 +10,7 @@ g.parse(rdf_path)
 LIB = Namespace("http://www.semanticweb.org/muhsin/ontologies/2024/9/library#")
 
 
-def add_entity(graph, entity_type, entity_name, properties):
-    """
-    Adds a new entity to the RDF graph.
-    
-    Parameters:
-    - graph: The RDF graph to modify.
-    - entity_type: The type of entity to add (e.g., 'Books').
-    - entity_name: The name for the new entity (e.g., 'NewBookTitle').
-    - properties: A dictionary of properties to add with the entity, 
-                  where keys are property names and values are property values.
-                  
-    Returns:
-    - URI of the newly added entity.
-    """
+def add_entity(graph, entity_type, entity_name, properties):   
     # Create a new URI for the entity
     entity_uri = LIB[entity_name.replace(" ", "_")]
     
@@ -37,17 +24,7 @@ def add_entity(graph, entity_type, entity_name, properties):
     return entity_uri
 
 
-def list_loan_options(graph, material_type):
-    """
-    Lists loan options for a given type of material (e.g., 'Books', 'DVDs').
-    
-    Parameters:
-    - graph: The RDF graph to search.
-    - material_type: The type of material to list loan options for (e.g., 'Books').
-    
-    Returns:
-    - A list of dictionaries with loan options for each instance of the specified material type.
-    """
+def list_loan_options(graph, material_type):    
     loan_options = []
     
     for subject in graph.subjects(RDF.type, LIB[material_type]):
@@ -78,7 +55,7 @@ if __name__ == "__main__":
     }
     
     # Add a new book entity to the RDF graph
-    new_book_uri = add_entity(g, "Books", "Conflict Harbits", book_properties)
+    new_book_uri = add_entity(g, "Books", "Introduction to Python", book_properties)
     print(f"Added new book: {new_book_uri}")
     
     # Retrieve and print loan options for "Books"

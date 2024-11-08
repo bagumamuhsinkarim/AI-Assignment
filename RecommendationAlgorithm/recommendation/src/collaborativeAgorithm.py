@@ -63,7 +63,7 @@ class CollaborativeRecommender:
                 item_ratings = self.ratings[similar_item]
                 recommendations = pandas.concat([recommendations, item_ratings[item_ratings > 0]])
             else:
-                print(f"Warning: {similar_item} not found in ratings")
+                return f"Warning: {similar_item} not found in ratings"
 
         # Remove items already rated by the same user
         recommendations = recommendations[~recommendations.index.isin(
